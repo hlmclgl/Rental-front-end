@@ -1,0 +1,81 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label"><h5>Araç Ara</h5></label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="Arama ifadesi giriniz"
+  />
+</div>
+
+<div *ngIf="filterText.length > 2" class="alert alert-success">
+  {{ filterText }} aradınız.
+</div>
+
+<app-car-filter></app-car-filter>
+
+<div
+  class="d-flex flex-wrap justify-content-center justify-content-xl-start"
+  style="gap: 0.75em; padding: 0; margin-top: 20px"
+>
+  <div
+    *ngFor="let carDetail of carDetails | filterPipe: filterText"
+    class="card"
+    style="width: 18rem"
+  >
+    <div class="d-flex" style="height: 45%">
+      <div
+        class="carousel-item"
+        *ngFor="let image of carDetails; index as i; first as firstImage"
+        [ngClass]="{ active: firstImage }"
+      >
+        <img
+          src="https://localhost:44381/{{ carDetail.imagePath[0] }}"
+          class="card-img-top"
+          alt=""
+          style="height: 100%; width: 100%; object-fit: cover"
+        />
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title text-center">
+        {{ carDetail.brandName | uppercase }} {{ carDetail.model | uppercase }}
+      </h5>
+      <p class="card-text text-center">{{ carDetail.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-left">
+        <b>Araç puanı:</b>{{ carDetail.minFindexScore }}
+      </li>
+      <li class="list-group-item text-left">
+        <b>Renk:</b>{{ carDetail.colorName }}
+      </li>
+      <li class="list-group-item text-left">
+        <b>Model Yılı:</b>{{ carDetail.modelYear }}
+      </li>
+      <li class="list-group-item text-left">
+        <b>Fiyat:</b>{{ carDetail.dailyPrice | vatAdded: 18 | currency: "₺" }}
+      </li>
+    </ul>
+    <div class="card-body">
+      <section style="float: top">
+        <button
+          type="button"
+          routerLink="/cars/detail/{{ carDetail.id }}"
+          class="btn btn-dark"
+        >
+          Detaylar
+        </button>
+        <button
+          type="button"
+          routerLink="/rentals/{{ carDetail.id }}"
+          style="margin-top: -66px; margin-left: 160px; width: 90px"
+          class="btn btn-dark"
+        >
+          Kirala
+        </button>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="d-grid gap-2">
+  <button
+    type="button"
+    style="width: 100%"
+    class="btn btn-info float-end"
+    data-bs-toggle="modal"
+    data-bs-target="#updateModal"
+  >
+    Araç Bilgilerini Güncelle
+  </button>
+</div>
+
+<div
+  class="modal fade"
+  id="updateModal"
+  tabindex="-1"
+  aria-labelledby="updateModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModal">Araç Bilgilerini Güncelle</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="updateCarForm">
+          <div class="row mb-3">
+            <div class="col-6">
+              <label for="colorId">Renk</label>
+              <select
+                formControlName="colorId"
+                id="colorId"
+                class="form-select mb-3"
+                aria-label="Default select example"
+              >
+                <option
+                  *ngFor="let color of colors"
+                  value="{{ color.colorId }}"
+                >
+                  {{ color.colorName }}
+                </option>
+              </select>
+            </div>
+
+            <div class="col-6">
+              <label for="brandId">Marka</label>
+              <select
+                formControlName="brandId"
+                id="brandId"
+                class="form-select mb-3"
+                aria-label="Default select example"
+              >
+                <option
+                  *ngFor="let brand of brands"
+                  value="{{ brand.brandId }}"
+                >
+                  {{ brand.brandName }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="model">Model</label>
+            <input
+              type="text"
+              class="form-control"
+              id="model"
+              placeholder="Model"
+              formControlName="model"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="modelYear">Model Yılı</label>
+            <input
+              type="number"
+              class="form-control"
+              id="modelYear"
+              placeholder="Model Yılı"
+              formControlName="modelYear"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="dailyPrice">Günlük Ücret</label>
+            <input
+              type="number"
+              class="form-control"
+              id="dailyPrice"
+              placeholder="Günlük Ücret"
+              formControlName="dailyPrice"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description">Açıklama</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              placeholder="Açıklama Giriniz"
+              formControlName="description"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="minFindexScore">Findeks Puanı</label>
+            <input
+              type="number"
+              class="form-control"
+              id="minFindexScore"
+              placeholder="Findeks Puanı Giriniz"
+              formControlName="minFindexScore"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Kapat
+        </button>
+        <button type="button" class="btn btn-success" (click)="update()">
+          Bilgileri Güncelle
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

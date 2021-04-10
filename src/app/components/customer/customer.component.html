@@ -1,0 +1,17 @@
+<h4 style="text-align: left">Müşteriler</h4>
+<table class="table">
+  <thead class="table-light">
+    <tr>
+      <td scope="col">İsim</td>
+      <td scope="col">Email</td>
+      <td scope="col">Findeks Puanı</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td scope="col">{{ customer.customerName }}</td>
+      <td scope="col">{{ customer.email }}</td>
+      <td scope="col">{{ customer.findexScore }}</td>
+    </tr>
+  </tbody>
+</table>

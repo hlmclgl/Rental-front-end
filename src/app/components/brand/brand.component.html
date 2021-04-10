@@ -1,0 +1,44 @@
+<div class="m-3">
+  <label
+    for="exampleFormControlInput1"
+    class="form-label"
+    style="color: rgb(74, 141, 7)"
+    >Marka ara</label
+  >
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    style="border-radius: 10px; border-color: rgb(74, 141, 7)"
+    placeholder="Arama ifadesi giriniz..."
+  />
+</div>
+
+<div *ngIf="filterText.length > 2" class="alert-warning m-2">
+  {{ filterText }} aranıyor...
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-dark">
+    <h5>MARKA</h5>
+  </li>
+  <li
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cars/brand/{{ brand.brandId }}"
+    *ngFor="let brand of brands | filterBrandPipe: filterText"
+    [class]="getCurrentBrandClass(brand)"
+  >
+    <h6>{{ brand.brandName }}</h6>
+  </li>
+
+  <button
+    routerLink="/cars"
+    (click)="clearFilter()"
+    type="button"
+    aria-current="true"
+    class="btn btn-outline-dark"
+  >
+    Filtreyi temizle
+  </button>
+</ul>

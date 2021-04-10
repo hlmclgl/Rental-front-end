@@ -1,0 +1,78 @@
+<div class="d-grid gap-2">
+  <button
+    type="button"
+    class="btn btn-outline-success"
+    data-bs-toggle="modal"
+    data-bs-target="#loginModal"
+  >
+    Giriş Yap
+  </button>
+</div>
+
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModal">Giriş Yap</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <body class="text-center">
+          <main class="form-signin">
+            <form [formGroup]="loginForm">
+              <img
+                class="mb-4"
+                src="assets/images/Logo.png"
+                alt=""
+                width="300"
+                height="190"
+              />
+              <h1 class="h3 mb-3 fw-normal">Giriş Yap</h1>
+
+              <div class="form-floating">
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label for="floatingInput">E posta</label>
+              </div>
+              <div class="form-floating">
+                <input
+                  formControlName="password"
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                />
+                <label for="floatingPassword">Parola</label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" (click)="login()">
+                Giriş yap
+              </button>
+              <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+              <div class="etc-login-form m-2">
+                <p>
+                  Yeni misin?<a routerLink="/register">Yeni hesap oluştur</a>
+                </p>
+              </div>
+            </form>
+          </main>
+        </body>
+      </div>
+    </div>
+  </div>
+</div>

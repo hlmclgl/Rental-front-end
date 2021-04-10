@@ -1,0 +1,76 @@
+<div class="card" style="width: 100%; margin-top: 20px">
+  <div
+    id="carouselExampleFade"
+    class="carousel slide carousel-fade"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div
+        class="carousel-item"
+        *ngFor="let image of images; index as i; first as firstImage"
+        [ngClass]="{ active: firstImage }"
+      >
+        <!-- diziye gelen ilk elemaı firstImage atar. Daha sonra, ngClass normal class ın içerisine karşısında yazan boolean değer true ysa active komutu ekliyor. -->
+        <img
+          [src]="imageUrl + image.imagePath"
+          class="d-block w-100"
+          alt="..."
+          style="height: 400px; width: 700px; object-fit: cover"
+        />
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleFade"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleFade"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ carDetail.brandName }} || {{ carDetail.model }}
+    </h5>
+    <p class="card-text">{{ carDetail.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <b>Findeks Puanı:</b> {{ carDetail.minFindexScore }}
+    </li>
+    <li class="list-group-item"><b>Renk :</b> {{ carDetail.colorName }}</li>
+    <li class="list-group-item">
+      <b>Model Yılı :</b> {{ carDetail.modelYear }}
+    </li>
+    <li class="list-group-item">
+      <b>Günlük Ücret :</b> {{ carDetail.dailyPrice }} ₺
+    </li>
+  </ul>
+
+  <div class="d-grid gap-2 m-2">
+    <app-car-update></app-car-update>
+  </div>
+  <button
+    routerLink="/cars"
+    (click)="getBack()"
+    type="button"
+    aria-current="true"
+    class="btn btn-warning float-end"
+  >
+    Geri Dön
+  </button>
+  <div class="d-grid gap-2 m-2" *ngIf="carDetail">
+    <app-rental [car]="carDetail"></app-rental>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <app-navi></app-navi>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="sticky-top sidebar m-2">
+        <div class="box"><app-brand></app-brand></div>
+        <div class="box"><app-color></app-color></div>
+      </div>
+    </div>
+    <div class="col-md-9 ms-2">
+      <div class="body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
