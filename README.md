@@ -2,7 +2,7 @@
 
 ## English Below ##
 
-![Anasayfa 1](https://github.com/hlmclgl/Rental-front-end/blob/master/images/cars.png)
+![Anasayfa 1](https://raw.githubusercontent.com/hlmclgl/Rental-front-end/main/images/cars.png)
 
 ![Anasayfa 2](https://github.com/hlmclgl/Rental-front-end/blob/master/images/cars2.png)
 
