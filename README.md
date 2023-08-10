@@ -19,6 +19,10 @@ Araç Sepeti, SOLID prensiplerine bağlı kalınarak ve N-Katmalı mimari yapıs
   - :pushpin:ngx-toastr
   
  Angular kullanarak oluşturduğumuz front-end kısmında Models, Services, Components, Pipes,Guards ve Interceptors klasörlerimiz bulunmaktadır. Bu klasörleri yakından inceleyelim:
+
+ <h2>🚀 Demo</h2>
+
+[More Detailed Youtube Video ](https://www.youtube.com/watch?v=gOAvJ5WEXsk&ab_channel=AhmetHilmi%C3%87ilo%C4%9Flu)
  
  ## Models ##
  
