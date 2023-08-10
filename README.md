@@ -22,7 +22,7 @@ Araç Sepeti, SOLID prensiplerine bağlı kalınarak ve N-Katmalı mimari yapıs
 
  <h2>🚀 Demo</h2>
 
-[More Detailed Youtube Video ](https://www.youtube.com/watch?v=gOAvJ5WEXsk&ab_channel=AhmetHilmi%C3%87ilo%C4%9Flu)
+[More Detailed Youtube Video ](https://www.youtube.com/watch?v=sP_UmHiH3Q4&ab_channel=AhmetHilmi%C3%87ilo%C4%9Flu)
  
  ## Models ##
  
